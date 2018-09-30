@@ -1,0 +1,11 @@
+<h1>Welcome to PeopleCo!</h1>
+
+<% @people.each do |person| %>
+
+  <h3 style="text-decoration:underline">ID: <%= person.id %></h3>
+  <h1><%= person.first_name %></h1>
+
+  <a href="/people/<%= person.id %>">Go to Page</a><br>
+  <a href="/people/<%= person.id %>/edit">Edit Page</a>
+
+<% end %>

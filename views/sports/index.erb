@@ -1,0 +1,10 @@
+<h1>Welcome to SportCo!</h1>
+
+<% @sports.each do |sport| %>
+
+  <h3 style="text-decoration:underline">ID: <%= sport.id_sports %></h3>
+  <h1><%= sport.sport_name %></h1>
+
+  <a href="/sports/<%= sport.id_sports %>">Go to Page</a>
+
+<% end %>

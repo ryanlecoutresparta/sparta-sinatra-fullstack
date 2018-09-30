@@ -1,0 +1,26 @@
+form {
+  width: 20%;
+  margin: auto;
+
+  .form-group {
+    text-align: center;
+
+    .form-control {
+      background-color: rgb(233, 128, 246);
+      box-shadow: none;
+      border-radius: 15px;
+      border: 2px black solid;
+      text-align: center;
+      padding: 10px 10px;
+      &:hover {
+        background: yellow;
+        transition: 0.5s;
+      }
+
+      &::placeholder {
+        text-align: center;
+        color: rgb(27, 82, 223);
+      }
+    }
+  }
+}

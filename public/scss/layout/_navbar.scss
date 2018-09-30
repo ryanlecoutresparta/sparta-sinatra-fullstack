@@ -1,0 +1,30 @@
+.navbar {
+
+  .container-fluid {
+    background: hotpink;
+    border-bottom: 2px solid black;
+    color: white;
+    width:100%;
+    display:flex;
+    padding: 0px;
+
+    .navbar-section {
+      width:25%;
+      display:flex;
+
+      &:hover {
+        background-color: $color1;
+        transition: 0.5s;
+      }
+
+      .navbar-brand {
+        color: white;
+        &:hover {
+          color: $color3;
+          transition: 0.5s;
+        }
+        margin:auto;
+      }
+    }
+  }
+}
