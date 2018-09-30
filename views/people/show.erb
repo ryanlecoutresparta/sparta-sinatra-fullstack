@@ -1,0 +1,14 @@
+<a href="/people">Back to People Page</a>
+<h1><%= @id.first_name %></h1>
+<h1 style="padding-bottom:20px"><%= @id.last_name %></h1>
+<h2 style="padding-bottom:20px">Gender: <%= @id.gender %></h2>
+<h2 style="padding-bottom:20px">Email: <%= @id.email %></h2>
+<h2 style="padding-bottom:20px">IP Address: <%= @id.ip_address %></h2>
+<h4 style="padding-bottom:20px">Favourite Sport: <a href="/sports/<%= @id.sport_id %>"><%= @id.sport %></a></h4>
+
+<a href="/people/<%= @id.id %>/edit">Edit Page</a>
+
+<form class="" action="/people/<%= @id.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete" style="background-color:red;border:2px solid black;margin:20px;">
+</form>

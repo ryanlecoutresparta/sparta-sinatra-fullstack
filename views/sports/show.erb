@@ -1,0 +1,11 @@
+<a href="/sports">Back to Sports Page</a>
+<h1 style="padding-bottom:20px"><%= @id.sport_name %></h1>
+<h3 style="padding-bottom:20px">Invented: <%= @id.invented %></h3>
+<h3 style="padding-bottom:20px">Team Size: <%= @id.team_size %></h3>
+
+<a href="/sports/<%= @id.id %>/edit">Edit Page</a>
+
+<form class="" action="/sports/<%= @id.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete" style="background-color:red;border:2px solid black;margin:20px;">
+</form>
