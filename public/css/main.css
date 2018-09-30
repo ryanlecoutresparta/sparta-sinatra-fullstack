@@ -6,6 +6,10 @@ body {
   body a {
     padding-bottom: 20px; }
 
+#id {
+  text-decoration: underline;
+  font-weight: bold; }
+
 .navbar .container-fluid {
   background: hotpink;
   border-bottom: 2px solid black;
@@ -32,13 +36,18 @@ form {
   form .form-group {
     text-align: center; }
     form .form-group .form-control {
+      background-color: #e980f6;
       box-shadow: none;
-      border-radius: 0;
-      border: none;
+      border-radius: 15px;
+      border: 2px black solid;
       text-align: center;
       padding: 10px 10px; }
+      form .form-group .form-control:hover {
+        background: yellow;
+        transition: 0.5s; }
       form .form-group .form-control::placeholder {
-        text-align: center; }
+        text-align: center;
+        color: #1b52df; }
 
 button[type='submit'] {
   background: #fa0064;
