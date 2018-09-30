@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS people;
 DROP TABLE IF EXISTS sports;
 
 CREATE TABLE sports (
-	id SERIAL PRIMARY KEY,
+	id_sports SERIAL PRIMARY KEY,
 	sport_name VARCHAR(50),
 	invented INTEGER,
 	team_size INTEGER
@@ -15,7 +15,7 @@ CREATE TABLE people (
 	email VARCHAR(50),
 	gender VARCHAR(50),
 	ip_address VARCHAR(20),
-	sport_id int REFERENCES sports(id)
+	sport_id int REFERENCES sports(id_sports)
 );
 
 INSERT INTO sports (sport_name, invented, team_size) VALUES ('Football', 1280, 11);

@@ -13,7 +13,7 @@ class PersonController < Sinatra::Base
   # INDEX
   get '/people' do
     @title = "PeopleCo"
-    @people = Person.all_with_sport
+    @people = Person.all
 
     erb :'people/index'
   end
@@ -24,7 +24,7 @@ class PersonController < Sinatra::Base
   # SHOW
   get '/people/:id' do
     id = params[:id].to_i
-    @id = Person.find_with_sport id
+    @person = Person.find_with_sport id
 
     erb :'people/show'
   end
@@ -38,6 +38,7 @@ class PersonController < Sinatra::Base
     person.email = params[:email]
     person.gender = params[:gender]
     person.ip_address = params[:ip_address]
+    person.sport_id = params[:sport_id]
 
     person.save
 
@@ -49,14 +50,14 @@ class PersonController < Sinatra::Base
 
     id = params[:id].to_i
 
-
-    person = Person.find id
+    person = Person.find_with_sport id
 
     person.first_name = params[:first_name]
     person.last_name = params[:last_name]
     person.email = params[:email]
     person.gender = params[:gender]
     person.ip_address = params[:ip_address]
+    person.sport_id = params[:sport_id]
 
     person.save
 
@@ -72,7 +73,7 @@ class PersonController < Sinatra::Base
   # EDIT
   get '/people/:id/edit' do
     id = params[:id].to_i
-    @person = Person.find id
+    @person = Person.find_with_sport id
 
     erb :'people/edit'
   end

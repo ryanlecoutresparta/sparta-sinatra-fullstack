@@ -1,0 +1,20 @@
+form {
+  width: 20%;
+  margin: auto;
+
+  .form-group {
+    text-align: center;
+
+    .form-control {
+      box-shadow: none;
+      border-radius: 0;
+      border: none;
+      text-align: center;
+      padding: 10px 10px;
+
+      &::placeholder {
+        text-align: center;
+      }
+    }
+  }
+}

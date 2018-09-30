@@ -22,9 +22,9 @@ class SportController < Sinatra::Base
     erb :'sports/new'
   end
   # SHOW
-  get '/sports/:id' do
-    id = params[:id].to_i
-    @id = Sport.find id
+  get '/sports/:id_sports' do
+    id_sports = params[:id_sports].to_i
+    @id_sports = Sport.find id_sports
 
     erb :'sports/show'
   end
@@ -43,11 +43,11 @@ class SportController < Sinatra::Base
 
   end
   # UPDATE
-  put '/sports/:id' do
+  put '/sports/:id_sports' do
 
-    id = params[:id].to_i
+    id_sports = params[:id_sports].to_i
 
-    sport = Sport.find id
+    sport = Sport.find id_sports
 
     sport.sport_name = params[:sport_name]
     sport.invented = params[:invented]
@@ -59,15 +59,15 @@ class SportController < Sinatra::Base
 
   end
   # DELETE
-  delete '/sports/:id' do
-    id = params[:id].to_i
-    Sport.destroy id
+  delete '/sports/:id_sports' do
+    id_sports = params[:id_sports].to_i
+    Sport.destroy id_sports
     redirect '/sports'
   end
   # EDIT
-  get '/sports/:id/edit' do
-    id = params[:id].to_i
-    @sport = Sport.find id
+  get '/sports/:id_sports/edit' do
+    id_sports = params[:id_sports].to_i
+    @sport = Sport.find id_sports
 
     erb :'sports/edit'
   end

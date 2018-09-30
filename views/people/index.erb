@@ -2,8 +2,8 @@
 
 <% @people.each do |person| %>
 
-  <h3 style="padding-top:30px;text-decoration:underline">ID: <%= person.id %></h3>
-  <h1 style="padding-bottom:30px"><%= person.first_name %></h1>
+  <h3>ID: <%= person.id %></h3>
+  <h1><%= person.first_name %></h1>
 
   <a href="/people/<%= person.id %>">Go to Page</a>
 

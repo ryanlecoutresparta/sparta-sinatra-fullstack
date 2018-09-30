@@ -2,9 +2,9 @@
 
 <% @sports.each do |sport| %>
 
-  <h3 style="padding-top:30px;text-decoration:underline">ID: <%= sport.id %></h3>
-  <h1 style="padding-bottom:30px"><%= sport.sport_name %></h1>
+  <h3>ID: <%= sport.id_sports %></h3>
+  <h1><%= sport.sport_name %></h1>
 
-  <a href="/sports/<%= sport.id %>">Go to Page</a>
+  <a href="/sports/<%= sport.id_sports %>">Go to Page</a>
 
 <% end %>

@@ -12,9 +12,9 @@ class Person
 
     # If the class instance that we're running the 'save' method on does NOT have an ID, then create. Else, update.
     if !self.id
-      sql = "INSERT INTO people (first_name, last_name, email, gender, ip_address) VALUES ('#{self.first_name}', '#{self.last_name}', '#{self.email}', '#{self.gender}', '#{self.ip_address}')"
+      sql = "INSERT INTO people (first_name, last_name, email, gender, ip_address, sport_id) VALUES ('#{self.first_name}', '#{self.last_name}', '#{self.email}', '#{self.gender}', '#{self.ip_address}', #{self.sport_id})"
     else
-      sql = "UPDATE people SET first_name='#{self.first_name}', last_name='#{self.last_name}', email='#{self.email}', gender='#{self.gender}', ip_address='#{self.ip_address}' WHERE id='#{self.id}'"
+      sql = "UPDATE people SET first_name='#{self.first_name}', last_name='#{self.last_name}', email='#{self.email}', gender='#{self.gender}', ip_address='#{self.ip_address}', sport_id=#{self.sport_id} WHERE id='#{self.id}'"
     end
 
     conn.exec(sql)
@@ -28,36 +28,24 @@ class Person
     people = results.map do |person|
       self.hydrate person
     end
-
+    puts people
     people
   end
 
-  def self.all_with_sport
-    conn = self.open_connection
-    sql = "SELECT people.id, people.first_name, people.last_name, people.email, people.gender, people.ip_address, people.sport_id, sports.id, sports.sport_name, sports.invented, sports.team_size FROM people JOIN sports ON people.sport_id = sports.id"
-    results = conn.exec(sql)
-
-    people = results.map do |person|
-      self.hydrate person
-    end
-
-    people
-  end
-
-  def self.find id
-    conn = self.open_connection
-    sql = "SELECT * FROM people WHERE id=#{id}"
-    results = conn.exec(sql)
-
-    person = self.hydrate results[0]
-
-    person
-
-  end
+  # def self.find id
+  #   conn = self.open_connection
+  #   sql = "SELECT * FROM people WHERE id=#{id}"
+  #   results = conn.exec(sql)
+  #
+  #   person = self.hydrate results[0]
+  #
+  #   person
+  #
+  # end
 
   def self.find_with_sport id
     conn = self.open_connection
-    sql = "SELECT people.id, people.first_name, people.last_name, people.email, people.gender, people.ip_address, people.sport_id, sports.id, sports.sport_name, sports.invented, sports.team_size FROM sports JOIN people ON people.sport_id = sports.id WHERE sports.id=#{id}"
+    sql = "SELECT people.id, people.first_name, people.last_name, people.email, people.gender, people.ip_address, people.sport_id, sports.id_sports, sports.sport_name, sports.invented, sports.team_size FROM people JOIN sports ON people.sport_id = sports.id_sports WHERE people.id = #{id}"
     results = conn.exec(sql)
 
     person = self.hydrate results[0]

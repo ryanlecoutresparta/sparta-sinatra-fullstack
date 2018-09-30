@@ -1,0 +1,19 @@
+button[type='submit'] {
+  background: $color4;
+  width: 250px;
+  margin: auto;
+  display: block;
+  padding: 15px;
+  font-size: 1em;
+  color: cyan;
+  font-style: italic;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  text-shadow: none;
+
+  &:hover {
+    background: $color2;
+    color: $color1;
+    transition: 0.3s;
+  }
+}
